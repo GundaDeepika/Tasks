@@ -1,0 +1,41 @@
+import java.util.*;
+public class Restaurant 
+{
+  public static void main(String[] args)
+  {
+	  Scanner sc=new Scanner(System.in);
+	  String[] s=new String[]{"eggrice","vegrice","curdrice","idly","vada","end"};
+	  int[] cost=new int[]{50,40,40,30,20,0};
+	  int[] items=new int[6];
+	  int sum=0;
+	  boolean end=true;
+	  do
+	  {
+		  System.out.println("Item"+"\t\t\tPrice");
+		  for(int i=0;i<6;i++)
+			  System.out.println((i+1)+"."+s[i]+"\t\t"+cost[i]);
+		      int m=sc.nextInt();
+		      if(m>0 && m<6)
+		      {
+		    	  System.out.println("enter the no.of items"+s[m-1]);
+		    	  int q=sc.nextInt();
+		    	  items[m-1]+=q;
+		      }
+		      else
+		      {
+		    	  end=false;
+		      }
+	  }
+	  while(end);
+	  System.out.println("Food items are:\n");
+	  for(int i=0;i<6;i++)
+	  {
+		  if(items[i]!=0)
+		  {
+			  sum+=items[i]*cost[i];
+			  System.out.println(s[i]+"*"+items[i]+"=="+items[i]*cost[i]+"RS.");
+		  }
+	  }
+	  System.out.println("Total cost="+sum);
+  }
+}
